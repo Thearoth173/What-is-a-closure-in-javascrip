@@ -1,23 +1,16 @@
-function fetchData() {
-    return new Promise ((resolve ,reject)=>{
-        setTimeout(()=>{resolve('Data fetched ! Student Name : Yim sokunthearoth ')},1000)
-    });
+function createCounter() {
+    let count = 0;
+
+    return function() {
+        console.log('Student Name: Yim sokunthearoth');
+
+        count++;
+        return count;
+    };
 }
 
-async function fetchandProcessData() {
-    try{
+const counter = createCounter();
 
-        console.log('Student Name : Yim sokunthearoth');
-        console.log('Using asyns/await: ')
-        const data = await fetchData();
-        console.log(data)
-        const processed = "Processing data .."
-        console.log(processed)
-
-    }catch(err){
-        console.error('Error',err)
-    }
-    
-}
-
-fetchandProcessData();
+console.log(counter());
+console.log(counter());
+console.log(counter());
